@@ -299,9 +299,9 @@ public class Calc extends JFrame {
                     value2 = Double.valueOf(b);
                     //System.out.println(value1);
                     //System.out.println(value2);
-                    int v1 = Integer.valueOf(value1.intValue());
+                    int v1 = value1.intValue();
                     //System.out.println(v1);
-                    int v2 = Integer.valueOf(value2.intValue());
+                    int v2 = value2.intValue();
                     // System.out.println(v2);
                     if ((v1 == 0 || v1 == 1) && (v2 == 0 || v2 == 1)) {
                         if (v1 == 1) {
@@ -326,9 +326,9 @@ public class Calc extends JFrame {
                     b = x.substring(x.indexOf("-") + 1);
                     value1 = Double.valueOf(a);
                     value2 = Double.valueOf(b);
-                    v1 = Integer.valueOf(value1.intValue());
+                    v1 = value1.intValue();
                     System.out.println(v1);
-                    v2 = Integer.valueOf(value2.intValue());
+                    v2 = value2.intValue();
                     System.out.println(v2);
                     if ((v1 == 0 || v1 == 1) && (v2 == 0 || v2 == 1)) {
                         if (v1 == 1) {
@@ -357,8 +357,8 @@ public class Calc extends JFrame {
                     b = x.substring(x.indexOf("*") + 1);
                     value1 = Double.valueOf(a);
                     value2 = Double.valueOf(b);
-                    v1 = Integer.valueOf(value1.intValue());
-                    v2 = Integer.valueOf(value2.intValue());
+                    v1 = value1.intValue();
+                    v2 = value2.intValue();
                     if ((v1 == 0 || v1 == 1) && (v2 == 0 || v2 == 1)) {
                         if (v1 == 1) {
                             if (v2 == 1) {
