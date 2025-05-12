@@ -3,7 +3,6 @@ package com.mycompany.calculator;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.*;
 import java.io.*;
 
@@ -115,13 +114,9 @@ public class Calc extends JFrame {
         binary_sub = new JButton("-(bin)");
         binary_sub.setBackground(Color.cyan);
         binary.add(binary_sub);
-        binary_sub.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                label.setText(label.getText() + "-");
-                i = 7;
-            }
-
+        binary_sub.addActionListener((ActionEvent e) -> {
+            label.setText(label.getText() + "-");
+            i = 7;
         });
 
         //Κουμπί για τον πολλαπλασιασμό δυαδικών αριθμών
@@ -235,7 +230,7 @@ public class Calc extends JFrame {
             Double value1, value2, result;
             int res;
             switch (i) {
-                case 1:
+                case 1 -> {
                     x = label.getText();
                     a = x.substring(0, x.indexOf("+"));
                     b = x.substring(x.indexOf("+"));
@@ -245,8 +240,8 @@ public class Calc extends JFrame {
                     //JOptionPane.showMessageDialog(null,result);
                     memory = result;
                     label.setText(memory.toString());
-                    break;
-                case 2:
+                }
+                case 2 -> {
                     x = label.getText();
                     a = x.substring(0, x.indexOf("-"));
                     b = x.substring(x.indexOf("-") + 1);
@@ -255,8 +250,8 @@ public class Calc extends JFrame {
                     result = value1 - value2;
                     memory = result;
                     label.setText(memory.toString());
-                    break;
-                case 3:
+                }
+                case 3 -> {
                     x = label.getText();
                     a = x.substring(0, x.indexOf("/"));
                     b = x.substring(x.indexOf("/") + 1);
@@ -266,8 +261,8 @@ public class Calc extends JFrame {
                     //JOptionPane.showMessageDialog(null,result);
                     memory = result;
                     label.setText(memory.toString());
-                    break;
-                case 4:
+                }
+                case 4 -> {
                     x = label.getText();
                     a = x.substring(0, x.indexOf("%"));
                     b = x.substring(x.indexOf("%") + 1);
@@ -278,8 +273,8 @@ public class Calc extends JFrame {
                     //JOptionPane.showMessageDialog(null,result1);
                     memory = result;
                     label.setText(memory.toString());
-                    break;
-                case 5:
+                }
+                case 5 -> {
                     x = label.getText();
                     a = x.substring(0, x.indexOf("*"));
                     b = x.substring(x.indexOf("*") + 1);
@@ -289,8 +284,8 @@ public class Calc extends JFrame {
                     //JOptionPane.showMessageDialog(null,result);
                     memory = result;
                     label.setText(memory.toString());
-                    break;
-                case 6:
+                }
+                case 6 -> {
                     x = label.getText();
                     //JOptionPane.showMessageDialog(null,x);
                     a = x.substring(0, x.indexOf("+"));
@@ -319,16 +314,16 @@ public class Calc extends JFrame {
                     } else {
                         JOptionPane.showMessageDialog(null, "Wrong system");
                     }
-                    break;
-                case 7:
+                }
+                case 7 -> {
                     x = label.getText();
                     a = x.substring(0, x.indexOf("-"));
                     b = x.substring(x.indexOf("-") + 1);
                     value1 = Double.valueOf(a);
                     value2 = Double.valueOf(b);
-                    v1 = value1.intValue();
+                    int v1 = value1.intValue();
                     System.out.println(v1);
-                    v2 = value2.intValue();
+                    int v2 = value2.intValue();
                     System.out.println(v2);
                     if ((v1 == 0 || v1 == 1) && (v2 == 0 || v2 == 1)) {
                         if (v1 == 1) {
@@ -350,15 +345,15 @@ public class Calc extends JFrame {
                     } else {
                         JOptionPane.showMessageDialog(null, "Wrong system");
                     }
-                    break;
-                case 8:
+                }
+                case 8 -> {
                     x = label.getText();
                     a = x.substring(0, x.indexOf("*"));
                     b = x.substring(x.indexOf("*") + 1);
                     value1 = Double.valueOf(a);
                     value2 = Double.valueOf(b);
-                    v1 = value1.intValue();
-                    v2 = value2.intValue();
+                    int v1 = value1.intValue();
+                    int v2 = value2.intValue();
                     if ((v1 == 0 || v1 == 1) && (v2 == 0 || v2 == 1)) {
                         if (v1 == 1) {
                             if (v2 == 1) {
@@ -379,7 +374,7 @@ public class Calc extends JFrame {
                     } else {
                         JOptionPane.showMessageDialog(null, "Wrong system");
                     }
-                    break;
+                }
             }
         });
 
