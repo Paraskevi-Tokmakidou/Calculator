@@ -84,7 +84,7 @@ public class Calc extends JFrame {
         binary.add(supplement);
         supplement.addActionListener((ActionEvent e) -> {
             //JOptionPane.showMessageDialog(null,"sumplirwma");
-            String x =label.getText();
+            String x = label.getText();
             //JOptionPane.showMessageDialog(null,x);
             for (int i = 0; i < x.length(); i++) {
                 int k = Character.getNumericValue(x.charAt(i));
@@ -239,8 +239,8 @@ public class Calc extends JFrame {
                     x = label.getText();
                     a = x.substring(0, x.indexOf("+"));
                     b = x.substring(x.indexOf("+"));
-                    value1 = Double.parseDouble(a);
-                    value2 = Double.parseDouble(b);
+                    value1 = Double.valueOf(a);
+                    value2 = Double.valueOf(b);
                     result = value1 + value2;
                     //JOptionPane.showMessageDialog(null,result);
                     memory = result;
@@ -250,8 +250,8 @@ public class Calc extends JFrame {
                     x = label.getText();
                     a = x.substring(0, x.indexOf("-"));
                     b = x.substring(x.indexOf("-") + 1);
-                    value1 = Double.parseDouble(a);
-                    value2 = Double.parseDouble(b);
+                    value1 = Double.valueOf(a);
+                    value2 = Double.valueOf(b);
                     result = value1 - value2;
                     memory = result;
                     label.setText(memory.toString());
@@ -260,8 +260,8 @@ public class Calc extends JFrame {
                     x = label.getText();
                     a = x.substring(0, x.indexOf("/"));
                     b = x.substring(x.indexOf("/") + 1);
-                    value1 = Double.parseDouble(a);
-                    value2 = Double.parseDouble(b);
+                    value1 = Double.valueOf(a);
+                    value2 = Double.valueOf(b);
                     result = value1 / value2;
                     //JOptionPane.showMessageDialog(null,result);
                     memory = result;
@@ -271,8 +271,8 @@ public class Calc extends JFrame {
                     x = label.getText();
                     a = x.substring(0, x.indexOf("%"));
                     b = x.substring(x.indexOf("%") + 1);
-                    value1 = Double.parseDouble(a);
-                    value2 = Double.parseDouble(b);
+                    value1 = Double.valueOf(a);
+                    value2 = Double.valueOf(b);
                     result = value1 % value2;
                     Integer result1 = result.intValue();
                     //JOptionPane.showMessageDialog(null,result1);
@@ -283,8 +283,8 @@ public class Calc extends JFrame {
                     x = label.getText();
                     a = x.substring(0, x.indexOf("*"));
                     b = x.substring(x.indexOf("*") + 1);
-                    value1 = Double.parseDouble(a);
-                    value2 = Double.parseDouble(b);
+                    value1 = Double.valueOf(a);
+                    value2 = Double.valueOf(b);
                     result = value1 * value2;
                     //JOptionPane.showMessageDialog(null,result);
                     memory = result;
@@ -295,8 +295,8 @@ public class Calc extends JFrame {
                     //JOptionPane.showMessageDialog(null,x);
                     a = x.substring(0, x.indexOf("+"));
                     b = x.substring(x.indexOf("+"));
-                    value1 = Double.parseDouble(a);
-                    value2 = Double.parseDouble(b);
+                    value1 = Double.valueOf(a);
+                    value2 = Double.valueOf(b);
                     //System.out.println(value1);
                     //System.out.println(value2);
                     int v1 = Integer.valueOf(value1.intValue());
@@ -324,8 +324,8 @@ public class Calc extends JFrame {
                     x = label.getText();
                     a = x.substring(0, x.indexOf("-"));
                     b = x.substring(x.indexOf("-") + 1);
-                    value1 = Double.parseDouble(a);
-                    value2 = Double.parseDouble(b);
+                    value1 = Double.valueOf(a);
+                    value2 = Double.valueOf(b);
                     v1 = Integer.valueOf(value1.intValue());
                     System.out.println(v1);
                     v2 = Integer.valueOf(value2.intValue());
@@ -355,8 +355,8 @@ public class Calc extends JFrame {
                     x = label.getText();
                     a = x.substring(0, x.indexOf("*"));
                     b = x.substring(x.indexOf("*") + 1);
-                    value1 = Double.parseDouble(a);
-                    value2 = Double.parseDouble(b);
+                    value1 = Double.valueOf(a);
+                    value2 = Double.valueOf(b);
                     v1 = Integer.valueOf(value1.intValue());
                     v2 = Integer.valueOf(value2.intValue());
                     if ((v1 == 0 || v1 == 1) && (v2 == 0 || v2 == 1)) {
