@@ -14,7 +14,7 @@ public class Calc extends JFrame {
     public JButton supplement, binary_add, binary_sub, binary_mult;
     private final JButton load, save;
     public final JButton b[];
-    private Integer i, memory1;
+    private Integer iterationButton, memory1;
     Double memory;
     private Stack<String> stack = new Stack<>();
 
@@ -252,7 +252,7 @@ public class Calc extends JFrame {
 
     private void concatLabelText(String text, Integer iter) {
         this.concatLabelText(text);
-        this.i = iter;
+        this.iterationButton = iter;
 
     }
 
@@ -260,7 +260,7 @@ public class Calc extends JFrame {
         String x, a, b;
         Double value1, value2, result;
         int res;
-        switch (i) {
+        switch (iterationButton) {
             case 1 -> {
                 x = label.getText();
                 a = x.substring(0, x.indexOf("+"));
