@@ -106,8 +106,7 @@ public class Calc extends JFrame {
         binary_add.setBackground(Color.cyan);
         binary.add(binary_add);
         binary_add.addActionListener((ActionEvent e) -> {
-            label.setText(label.getText() + "+");
-            i = 6;
+            this.concatLabelText("+", 6);
         });
 
         //Κουμπί για την αφαίρεση δυαδικών αριθμών        
@@ -115,8 +114,7 @@ public class Calc extends JFrame {
         binary_sub.setBackground(Color.cyan);
         binary.add(binary_sub);
         binary_sub.addActionListener((ActionEvent e) -> {
-            label.setText(label.getText() + "-");
-            i = 7;
+            this.concatLabelText("-", 7);
         });
 
         //Κουμπί για τον πολλαπλασιασμό δυαδικών αριθμών
@@ -124,8 +122,7 @@ public class Calc extends JFrame {
         binary_mult.setBackground(Color.cyan);
         binary.add(binary_mult);
         binary_mult.addActionListener((ActionEvent e) -> {
-            label.setText(label.getText() + "*");
-            i = 8;
+            this.concatLabelText("*", 8);
         });
 
         //JPanel για τα σύμβολα των πράξεων
@@ -138,8 +135,7 @@ public class Calc extends JFrame {
         add.setBackground(Color.yellow);
         operation.add(add);
         add.addActionListener((ActionEvent e) -> {
-            label.setText(label.getText() + "+");
-            i = 1;//για το switch
+            this.concatLabelText("+", 1);
         });
 
         //Κουμπί για την αφαίρεση δεκαδικών αριθμών
@@ -147,9 +143,8 @@ public class Calc extends JFrame {
         sub.setBackground(Color.yellow);
         operation.add(sub);
         sub.addActionListener((ActionEvent e) -> {
-            label.setText(label.getText() + "-");
+            this.concatLabelText("-", 2);
             //JOptionPane.showMessageDialog(null,label.getText());
-            i = 2;//για το switch
         });
 
         //Κουμπί για την διαίρεση δεκαδικών αριθμών
@@ -157,8 +152,7 @@ public class Calc extends JFrame {
         div.setBackground(Color.yellow);
         operation.add(div);
         div.addActionListener((ActionEvent e) -> {
-            label.setText(label.getText() + "/");
-            i = 3;
+            this.concatLabelText("/", 3);
         });
 
         //Κουμπί για το υπόλοιπο της διαίρεσης
@@ -166,8 +160,7 @@ public class Calc extends JFrame {
         mod.setBackground(Color.yellow);
         operation.add(mod);
         mod.addActionListener((ActionEvent e) -> {
-            label.setText(label.getText() + "%");
-            i = 4;
+            this.concatLabelText("%", 4);
         });
 
         //Κουμπί για τον πολλαπλασιασμό δεκαδικών αριθμών
@@ -175,8 +168,7 @@ public class Calc extends JFrame {
         mult.setBackground(Color.yellow);
         operation.add(mult);
         mult.addActionListener((ActionEvent e) -> {
-            label.setText(label.getText() + "*");
-            i = 5;
+            this.concatLabelText("*", 5);
         });
 
         //Panel για τους αριθμούς
@@ -192,7 +184,7 @@ public class Calc extends JFrame {
             b[i].setBackground(Color.green);
             String bt = b[i].getText();
             b[i].addActionListener((ActionEvent e) -> {
-                label.setText(label.getText() + bt);
+                this.concatLabelText(bt);
                 stack.push(bt);
             });
         }
@@ -226,163 +218,14 @@ public class Calc extends JFrame {
         equal.setBackground(Color.cyan);
         panelofButtons.add(equal);
         equal.addActionListener((ActionEvent e) -> {
-            String x, a, b;
-            Double value1, value2, result;
-            int res;
-            switch (i) {
-                case 1 -> {
-                    x = label.getText();
-                    a = x.substring(0, x.indexOf("+"));
-                    b = x.substring(x.indexOf("+"));
-                    value1 = Double.valueOf(a);
-                    value2 = Double.valueOf(b);
-                    result = value1 + value2;
-                    //JOptionPane.showMessageDialog(null,result);
-                    memory = result;
-                    label.setText(memory.toString());
-                }
-                case 2 -> {
-                    x = label.getText();
-                    a = x.substring(0, x.indexOf("-"));
-                    b = x.substring(x.indexOf("-") + 1);
-                    value1 = Double.valueOf(a);
-                    value2 = Double.valueOf(b);
-                    result = value1 - value2;
-                    memory = result;
-                    label.setText(memory.toString());
-                }
-                case 3 -> {
-                    x = label.getText();
-                    a = x.substring(0, x.indexOf("/"));
-                    b = x.substring(x.indexOf("/") + 1);
-                    value1 = Double.valueOf(a);
-                    value2 = Double.valueOf(b);
-                    result = value1 / value2;
-                    //JOptionPane.showMessageDialog(null,result);
-                    memory = result;
-                    label.setText(memory.toString());
-                }
-                case 4 -> {
-                    x = label.getText();
-                    a = x.substring(0, x.indexOf("%"));
-                    b = x.substring(x.indexOf("%") + 1);
-                    value1 = Double.valueOf(a);
-                    value2 = Double.valueOf(b);
-                    result = value1 % value2;
-                    Integer result1 = result.intValue();
-                    //JOptionPane.showMessageDialog(null,result1);
-                    memory = result;
-                    label.setText(memory.toString());
-                }
-                case 5 -> {
-                    x = label.getText();
-                    a = x.substring(0, x.indexOf("*"));
-                    b = x.substring(x.indexOf("*") + 1);
-                    value1 = Double.valueOf(a);
-                    value2 = Double.valueOf(b);
-                    result = value1 * value2;
-                    //JOptionPane.showMessageDialog(null,result);
-                    memory = result;
-                    label.setText(memory.toString());
-                }
-                case 6 -> {
-                    x = label.getText();
-                    //JOptionPane.showMessageDialog(null,x);
-                    a = x.substring(0, x.indexOf("+"));
-                    b = x.substring(x.indexOf("+"));
-                    value1 = Double.valueOf(a);
-                    value2 = Double.valueOf(b);
-                    //System.out.println(value1);
-                    //System.out.println(value2);
-                    int v1 = value1.intValue();
-                    //System.out.println(v1);
-                    int v2 = value2.intValue();
-                    // System.out.println(v2);
-                    if ((v1 == 0 || v1 == 1) && (v2 == 0 || v2 == 1)) {
-                        if (v1 == 1) {
-                            if (v2 == 1) {
-                                res = 1;
-                            } else {
-                                res = 0;
-                            }
-                        } else {
-                            res = 0;
-                        }
-                        //JOptionPane.showMessageDialog(null,res);
-                        memory1 = res;
-                        label.setText(memory1.toString());
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Wrong system");
-                    }
-                }
-                case 7 -> {
-                    x = label.getText();
-                    a = x.substring(0, x.indexOf("-"));
-                    b = x.substring(x.indexOf("-") + 1);
-                    value1 = Double.valueOf(a);
-                    value2 = Double.valueOf(b);
-                    int v1 = value1.intValue();
-                    System.out.println(v1);
-                    int v2 = value2.intValue();
-                    System.out.println(v2);
-                    if ((v1 == 0 || v1 == 1) && (v2 == 0 || v2 == 1)) {
-                        if (v1 == 1) {
-                            if (v2 == 1) {
-                                res = 0;
-                            } else {
-                                res = 1;
-                            }
-                        } else {
-                            if (v2 == 1) {
-                                res = 1;
-                            } else {
-                                res = 0;
-                            }
-                        }
-                        //JOptionPane.showMessageDialog(null,res);
-                        memory1 = res;
-                        label.setText(memory1.toString());
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Wrong system");
-                    }
-                }
-                case 8 -> {
-                    x = label.getText();
-                    a = x.substring(0, x.indexOf("*"));
-                    b = x.substring(x.indexOf("*") + 1);
-                    value1 = Double.valueOf(a);
-                    value2 = Double.valueOf(b);
-                    int v1 = value1.intValue();
-                    int v2 = value2.intValue();
-                    if ((v1 == 0 || v1 == 1) && (v2 == 0 || v2 == 1)) {
-                        if (v1 == 1) {
-                            if (v2 == 1) {
-                                res = 1;
-                            } else {
-                                res = 0;
-                            }
-                        } else {
-                            if (v2 == 0) {
-                                res = 0;
-                            } else {
-                                res = 0;
-                            }
-                        }
-                        //JOptionPane.showMessageDialog(null,res);
-                        memory1 = res;
-                        label.setText(memory1.toString());
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Wrong system");
-                    }
-                }
-            }
+            this.calculate();
         });
 
         dot = new JButton(".");
         dot.setBackground(Color.cyan);
         panelofButtons.add(dot);
         dot.addActionListener((ActionEvent e) -> {
-            label.setText(label.getText() + ".");
+            this.concatLabelText(".");
         });
 
         panelforfiles = new JPanel();
@@ -405,5 +248,168 @@ public class Calc extends JFrame {
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
+    }
+
+    private void concatLabelText(String text) {
+        label.setText(label.getText() + text);
+    }
+
+    private void concatLabelText(String text, Integer iter) {
+        this.concatLabelText(text);
+        this.i = iter;
+
+    }
+
+    private void calculate() {
+        String x, a, b;
+        Double value1, value2, result;
+        int res;
+        switch (i) {
+            case 1 -> {
+                x = label.getText();
+                a = x.substring(0, x.indexOf("+"));
+                b = x.substring(x.indexOf("+"));
+                value1 = Double.valueOf(a);
+                value2 = Double.valueOf(b);
+                result = value1 + value2;
+                //JOptionPane.showMessageDialog(null,result);
+                memory = result;
+                label.setText(memory.toString());
+            }
+            case 2 -> {
+                x = label.getText();
+                a = x.substring(0, x.indexOf("-"));
+                b = x.substring(x.indexOf("-") + 1);
+                value1 = Double.valueOf(a);
+                value2 = Double.valueOf(b);
+                result = value1 - value2;
+                memory = result;
+                label.setText(memory.toString());
+            }
+            case 3 -> {
+                x = label.getText();
+                a = x.substring(0, x.indexOf("/"));
+                b = x.substring(x.indexOf("/") + 1);
+                value1 = Double.valueOf(a);
+                value2 = Double.valueOf(b);
+                result = value1 / value2;
+                //JOptionPane.showMessageDialog(null,result);
+                memory = result;
+                label.setText(memory.toString());
+            }
+            case 4 -> {
+                x = label.getText();
+                a = x.substring(0, x.indexOf("%"));
+                b = x.substring(x.indexOf("%") + 1);
+                value1 = Double.valueOf(a);
+                value2 = Double.valueOf(b);
+                result = value1 % value2;
+                Integer result1 = result.intValue();
+                //JOptionPane.showMessageDialog(null,result1);
+                memory = result;
+                label.setText(memory.toString());
+            }
+            case 5 -> {
+                x = label.getText();
+                a = x.substring(0, x.indexOf("*"));
+                b = x.substring(x.indexOf("*") + 1);
+                value1 = Double.valueOf(a);
+                value2 = Double.valueOf(b);
+                result = value1 * value2;
+                //JOptionPane.showMessageDialog(null,result);
+                memory = result;
+                label.setText(memory.toString());
+            }
+            case 6 -> {
+                x = label.getText();
+                //JOptionPane.showMessageDialog(null,x);
+                a = x.substring(0, x.indexOf("+"));
+                b = x.substring(x.indexOf("+"));
+                value1 = Double.valueOf(a);
+                value2 = Double.valueOf(b);
+                //System.out.println(value1);
+                //System.out.println(value2);
+                int v1 = value1.intValue();
+                //System.out.println(v1);
+                int v2 = value2.intValue();
+                // System.out.println(v2);
+                if ((v1 == 0 || v1 == 1) && (v2 == 0 || v2 == 1)) {
+                    if (v1 == 1) {
+                        if (v2 == 1) {
+                            res = 1;
+                        } else {
+                            res = 0;
+                        }
+                    } else {
+                        res = 0;
+                    }
+                    //JOptionPane.showMessageDialog(null,res);
+                    memory1 = res;
+                    label.setText(memory1.toString());
+                } else {
+                    JOptionPane.showMessageDialog(null, "Wrong system");
+                }
+            }
+            case 7 -> {
+                x = label.getText();
+                a = x.substring(0, x.indexOf("-"));
+                b = x.substring(x.indexOf("-") + 1);
+                value1 = Double.valueOf(a);
+                value2 = Double.valueOf(b);
+                int v1 = value1.intValue();
+                System.out.println(v1);
+                int v2 = value2.intValue();
+                System.out.println(v2);
+                if ((v1 == 0 || v1 == 1) && (v2 == 0 || v2 == 1)) {
+                    if (v1 == 1) {
+                        if (v2 == 1) {
+                            res = 0;
+                        } else {
+                            res = 1;
+                        }
+                    } else {
+                        if (v2 == 1) {
+                            res = 1;
+                        } else {
+                            res = 0;
+                        }
+                    }
+                    //JOptionPane.showMessageDialog(null,res);
+                    memory1 = res;
+                    label.setText(memory1.toString());
+                } else {
+                    JOptionPane.showMessageDialog(null, "Wrong system");
+                }
+            }
+            case 8 -> {
+                x = label.getText();
+                a = x.substring(0, x.indexOf("*"));
+                b = x.substring(x.indexOf("*") + 1);
+                value1 = Double.valueOf(a);
+                value2 = Double.valueOf(b);
+                int v1 = value1.intValue();
+                int v2 = value2.intValue();
+                if ((v1 == 0 || v1 == 1) && (v2 == 0 || v2 == 1)) {
+                    if (v1 == 1) {
+                        if (v2 == 1) {
+                            res = 1;
+                        } else {
+                            res = 0;
+                        }
+                    } else {
+                        if (v2 == 0) {
+                            res = 0;
+                        } else {
+                            res = 0;
+                        }
+                    }
+                    //JOptionPane.showMessageDialog(null,res);
+                    memory1 = res;
+                    label.setText(memory1.toString());
+                } else {
+                    JOptionPane.showMessageDialog(null, "Wrong system");
+                }
+            }
+        }
     }
 }
