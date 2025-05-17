@@ -82,13 +82,10 @@ public class Calc extends JFrame {
         supplement.setBackground(Color.cyan);
         binary.add(supplement);
         supplement.addActionListener((ActionEvent e) -> {
-            //JOptionPane.showMessageDialog(null,"sumplirwma");
             String x = label.getText();
-            //JOptionPane.showMessageDialog(null,x);
             for (int i = 0; i < x.length(); i++) {
                 int k = Character.getNumericValue(x.charAt(i));
                 if (k == 0 || k == 1) {
-                    //JOptionPane.showMessageDialog(null,"ok");
                     if (k == 1) {
                         label.setText("0");
                     } else {
@@ -144,7 +141,6 @@ public class Calc extends JFrame {
         operation.add(sub);
         sub.addActionListener((ActionEvent e) -> {
             this.concatLabelText("-", 2);
-            //JOptionPane.showMessageDialog(null,label.getText());
         });
 
         //Κουμπί για την διαίρεση δεκαδικών αριθμών
@@ -272,7 +268,6 @@ public class Calc extends JFrame {
                 value1 = Double.valueOf(a);
                 value2 = Double.valueOf(b);
                 result = value1 + value2;
-                //JOptionPane.showMessageDialog(null,result);
                 memory = result;
                 label.setText(memory.toString());
             }
@@ -293,7 +288,6 @@ public class Calc extends JFrame {
                 value1 = Double.valueOf(a);
                 value2 = Double.valueOf(b);
                 result = value1 / value2;
-                //JOptionPane.showMessageDialog(null,result);
                 memory = result;
                 label.setText(memory.toString());
             }
@@ -305,7 +299,6 @@ public class Calc extends JFrame {
                 value2 = Double.valueOf(b);
                 result = value1 % value2;
                 Integer result1 = result.intValue();
-                //JOptionPane.showMessageDialog(null,result1);
                 memory = result;
                 label.setText(memory.toString());
             }
@@ -316,23 +309,17 @@ public class Calc extends JFrame {
                 value1 = Double.valueOf(a);
                 value2 = Double.valueOf(b);
                 result = value1 * value2;
-                //JOptionPane.showMessageDialog(null,result);
                 memory = result;
                 label.setText(memory.toString());
             }
             case 6 -> {
                 x = label.getText();
-                //JOptionPane.showMessageDialog(null,x);
                 a = x.substring(0, x.indexOf("+"));
                 b = x.substring(x.indexOf("+"));
                 value1 = Double.valueOf(a);
                 value2 = Double.valueOf(b);
-                //System.out.println(value1);
-                //System.out.println(value2);
                 int v1 = value1.intValue();
-                //System.out.println(v1);
                 int v2 = value2.intValue();
-                // System.out.println(v2);
                 if ((v1 == 0 || v1 == 1) && (v2 == 0 || v2 == 1)) {
                     if (v1 == 1) {
                         if (v2 == 1) {
@@ -343,7 +330,6 @@ public class Calc extends JFrame {
                     } else {
                         res = 0;
                     }
-                    //JOptionPane.showMessageDialog(null,res);
                     memory1 = res;
                     label.setText(memory1.toString());
                 } else {
@@ -374,7 +360,6 @@ public class Calc extends JFrame {
                             res = 0;
                         }
                     }
-                    //JOptionPane.showMessageDialog(null,res);
                     memory1 = res;
                     label.setText(memory1.toString());
                 } else {
@@ -403,7 +388,6 @@ public class Calc extends JFrame {
                             res = 0;
                         }
                     }
-                    //JOptionPane.showMessageDialog(null,res);
                     memory1 = res;
                     label.setText(memory1.toString());
                 } else {
